@@ -1,0 +1,15 @@
+${ui.include($this, ["jquery", "bootstrap", "jquery.growl", "ishell-core", "ishell-navbar", "login-form", "ishell-footer"])}
+${ui.includejs($this, ["js/login.js"])}
+
+${ui.parse($this, "html-header.html")}
+
+<div class="container-fluid">${ui.html($this,"ishell-navbar")}</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			${ui.html(${this}, "login-form")}
+		</div>
+	</div>
+</div>
+${ui.html($this, "ishell-footer")}
