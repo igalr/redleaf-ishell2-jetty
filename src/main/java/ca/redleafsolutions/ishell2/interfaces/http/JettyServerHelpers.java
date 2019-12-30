@@ -16,7 +16,7 @@ public class JettyServerHelpers {
 			throw new FileNotFoundException ("Keystore file " + keystoreFile + " was not found");
 		}
 
-		SslContextFactory sslContextFactory = new SslContextFactory ();
+		SslContextFactory sslContextFactory = new SslContextFactory.Server ();
 		sslContextFactory.setKeyStorePath (keystoreFile.getAbsolutePath ());
 		String kmpassword, kspassword = ssl.getString ("keystore-password");
 		sslContextFactory.setKeyStorePassword (kspassword);
