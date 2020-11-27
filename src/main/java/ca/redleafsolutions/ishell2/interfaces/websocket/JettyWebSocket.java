@@ -52,14 +52,14 @@ public class JettyWebSocket extends EventDispatcher<ChannelEvent> implements Web
 	public void handleMessage (String message) {
 		handleMessage (new JettyWebSocketMessage (message));
 	}
-	@Override
+//	@Override
 	public void handleMessage (WebSocketMessage message) {
 		JettyWebSocketServer.getInstance ().dispatchEvent (new ChannelEvent.MessageReceived (this, message));
 	}
 
 	// called in case of an error
 	@OnWebSocketError
-	@Override
+//	@Override
 	public void handleError (Throwable e) {
 		iLogger.warning ("Notification channel " + session + " error " + e);
 		close (0);
@@ -76,7 +76,7 @@ public class JettyWebSocket extends EventDispatcher<ChannelEvent> implements Web
 		session.close (code, "" + code);
 	}
 
-	@Override
+//	@Override
 	public InetAddress remote () {
 		return session.getRemoteAddress ().getAddress ();
 	}
@@ -86,7 +86,7 @@ public class JettyWebSocket extends EventDispatcher<ChannelEvent> implements Web
 		return remote ().getHostAddress () + "/" + this.hashCode ();
 	}
 
-	@Override
+//	@Override
 	public boolean isOpen () {
 		return session.isOpen ();
 	}

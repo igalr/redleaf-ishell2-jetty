@@ -25,6 +25,7 @@ import org.eclipse.jetty.http.MimeTypes;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 
+import ca.redleafsolutions.TemplateException;
 import ca.redleafsolutions.ishell2.IShellRequest;
 import ca.redleafsolutions.ishell2.IShellRequestSingle;
 import ca.redleafsolutions.ishell2.ParseRequestResults;
@@ -122,7 +123,7 @@ public class FileHandler extends AbstractHandler {
 		}
 	}
 
-	protected StreamAndLength getStreamAndLength (File file, IShellRequest request) throws IOException {
+	protected StreamAndLength getStreamAndLength (File file, IShellRequest request) throws IOException, TemplateException {
 		return new StreamAndLength (file, request);
 	}
 }

@@ -18,6 +18,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 
 import ca.redleafsolutions.ObjectMap;
+import ca.redleafsolutions.TemplateException;
 import ca.redleafsolutions.TemplateUtils;
 import ca.redleafsolutions.ishell2.IShellRequest;
 import ca.redleafsolutions.ishell2.interfaces.IShellHTTPInterface;
@@ -30,7 +31,7 @@ public class TemplateHandler extends FileHandler {
 		super (iface, key, file, defaultfile);
 	}
 	
-	protected StreamAndLength getStreamAndLength (File file, IShellRequest request) throws IOException {
+	protected StreamAndLength getStreamAndLength (File file, IShellRequest request) throws IOException, TemplateException {
 		ObjectMap map = IShellHTTPInterface.templateSetup (file.toString (), request);
 
 		Writer writer = new StringWriter ();
